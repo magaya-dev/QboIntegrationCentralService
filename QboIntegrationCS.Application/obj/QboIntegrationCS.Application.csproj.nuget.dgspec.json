@@ -1,0 +1,291 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Projects\\QboIntegrationCentralService\\QboIntegrationCS.Application\\QboIntegrationCS.Application.csproj": {}
+  },
+  "projects": {
+    "D:\\Projects\\QboIntegrationCentralService\\QboIntegrationCS.Application\\QboIntegrationCS.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Projects\\QboIntegrationCentralService\\QboIntegrationCS.Application\\QboIntegrationCS.Application.csproj",
+        "projectName": "QboIntegrationCS.Application",
+        "projectPath": "D:\\Projects\\QboIntegrationCentralService\\QboIntegrationCS.Application\\QboIntegrationCS.Application.csproj",
+        "packagesPath": "C:\\Users\\ayelin.rodriguez\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\QboIntegrationCentralService\\QboIntegrationCS.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ayelin.rodriguez\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\Projects\\QboIntegrationCentralService\\QboIntegrationCS.Domain\\QboIntegrationCS.Domain.csproj": {
+                "projectPath": "D:\\Projects\\QboIntegrationCentralService\\QboIntegrationCS.Domain\\QboIntegrationCS.Domain.csproj"
+              },
+              "D:\\Projects\\QboIntegrationCentralService\\QboIntegrationCS.Repositories\\QboIntegrationCS.Repositories.csproj": {
+                "projectPath": "D:\\Projects\\QboIntegrationCentralService\\QboIntegrationCS.Repositories\\QboIntegrationCS.Repositories.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Extensions.Http": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Projects\\QboIntegrationCentralService\\QboIntegrationCs.CosmosC\\QboIntegrationCS.CosmosC.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Projects\\QboIntegrationCentralService\\QboIntegrationCs.CosmosC\\QboIntegrationCS.CosmosC.csproj",
+        "projectName": "QboIntegrationCS.CosmosC",
+        "projectPath": "D:\\Projects\\QboIntegrationCentralService\\QboIntegrationCs.CosmosC\\QboIntegrationCS.CosmosC.csproj",
+        "packagesPath": "C:\\Users\\ayelin.rodriguez\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\QboIntegrationCentralService\\QboIntegrationCs.CosmosC\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ayelin.rodriguez\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\Projects\\QboIntegrationCentralService\\QboIntegrationCS.Domain\\QboIntegrationCS.Domain.csproj": {
+                "projectPath": "D:\\Projects\\QboIntegrationCentralService\\QboIntegrationCS.Domain\\QboIntegrationCS.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Azure.Cosmos": {
+              "target": "Package",
+              "version": "[3.37.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Projects\\QboIntegrationCentralService\\QboIntegrationCS.Domain\\QboIntegrationCS.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Projects\\QboIntegrationCentralService\\QboIntegrationCS.Domain\\QboIntegrationCS.Domain.csproj",
+        "projectName": "QboIntegrationCS.Domain",
+        "projectPath": "D:\\Projects\\QboIntegrationCentralService\\QboIntegrationCS.Domain\\QboIntegrationCS.Domain.csproj",
+        "packagesPath": "C:\\Users\\ayelin.rodriguez\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\QboIntegrationCentralService\\QboIntegrationCS.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ayelin.rodriguez\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Projects\\QboIntegrationCentralService\\QboIntegrationCS.Repositories\\QboIntegrationCS.Repositories.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Projects\\QboIntegrationCentralService\\QboIntegrationCS.Repositories\\QboIntegrationCS.Repositories.csproj",
+        "projectName": "QboIntegrationCS.Repositories",
+        "projectPath": "D:\\Projects\\QboIntegrationCentralService\\QboIntegrationCS.Repositories\\QboIntegrationCS.Repositories.csproj",
+        "packagesPath": "C:\\Users\\ayelin.rodriguez\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\QboIntegrationCentralService\\QboIntegrationCS.Repositories\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ayelin.rodriguez\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\Projects\\QboIntegrationCentralService\\QboIntegrationCs.CosmosC\\QboIntegrationCS.CosmosC.csproj": {
+                "projectPath": "D:\\Projects\\QboIntegrationCentralService\\QboIntegrationCs.CosmosC\\QboIntegrationCS.CosmosC.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Extensions.Logging": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

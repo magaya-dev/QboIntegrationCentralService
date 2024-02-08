@@ -1,0 +1,18 @@
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "excludedTypes": "Request"
+      }
+    },
+
+    "logLevel": {
+      "QboIntegrationCS.Application.Bill.BillService": "Information",
+      "QboIntegrationCS.Application.Bill.MgyBillDispatcher": "Information",
+      "QboIntegrationCS.Repositories.Bills.QboBillsCosmoRepo": "Information",
+
+    }
+  }
+}

@@ -1,0 +1,12 @@
+D:\Projects\QboIntegrationCentralService\QboIntegrationCS.Domain\bin\Release\net6.0\QboIntegrationCS.Domain.deps.json
+D:\Projects\QboIntegrationCentralService\QboIntegrationCS.Domain\bin\Release\net6.0\QboIntegrationCS.Domain.dll
+D:\Projects\QboIntegrationCentralService\QboIntegrationCS.Domain\bin\Release\net6.0\QboIntegrationCS.Domain.pdb
+D:\Projects\QboIntegrationCentralService\QboIntegrationCS.Domain\obj\Release\net6.0\QboIntegrationCS.Domain.csproj.AssemblyReference.cache
+D:\Projects\QboIntegrationCentralService\QboIntegrationCS.Domain\obj\Release\net6.0\QboIntegrationCS.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\QboIntegrationCentralService\QboIntegrationCS.Domain\obj\Release\net6.0\QboIntegrationCS.Domain.AssemblyInfoInputs.cache
+D:\Projects\QboIntegrationCentralService\QboIntegrationCS.Domain\obj\Release\net6.0\QboIntegrationCS.Domain.AssemblyInfo.cs
+D:\Projects\QboIntegrationCentralService\QboIntegrationCS.Domain\obj\Release\net6.0\QboIntegrationCS.Domain.csproj.CoreCompileInputs.cache
+D:\Projects\QboIntegrationCentralService\QboIntegrationCS.Domain\obj\Release\net6.0\QboIntegrationCS.Domain.dll
+D:\Projects\QboIntegrationCentralService\QboIntegrationCS.Domain\obj\Release\net6.0\refint\QboIntegrationCS.Domain.dll
+D:\Projects\QboIntegrationCentralService\QboIntegrationCS.Domain\obj\Release\net6.0\QboIntegrationCS.Domain.pdb
+D:\Projects\QboIntegrationCentralService\QboIntegrationCS.Domain\obj\Release\net6.0\ref\QboIntegrationCS.Domain.dll
