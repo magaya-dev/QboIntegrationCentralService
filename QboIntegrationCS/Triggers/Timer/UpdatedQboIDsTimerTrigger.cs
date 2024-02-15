@@ -49,7 +49,7 @@ namespace QboIntegrationCS.Triggers.Timer
                     log.LogInformation($"dtStart: {dtStart}");
 
                     // get bills and send them to Mgy est
-                    var respDate = await _billService.SendBills(networkId, token, limit, dtStart, 0);
+                    var respDate = await _billService.SendBills(networkId, token, limit, dtStart, 0, "bills");
 
                     // Update last date
                     if (respDate != null)

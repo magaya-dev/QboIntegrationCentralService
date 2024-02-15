@@ -17,8 +17,8 @@ namespace QboIntegrationCS.Application.Bill
 {
     public interface IMgyBillDispatcher
     {
-        Task<QboBills> GetQboBills(string networkId, string token, int limit, DateTime dtStart, int daysEnd, string endpoint, int offset);
-        Task<IEnumerable<MgyBillsStatus>> DispatchBills(MgyBills mgyBills, string networkId, string token, string endpoint);
+        Task<QboBills> GetQboBills(string networkId, string token, int limit, DateTime dtStart, int daysEnd, string endpoint, int offset, string transactionType);
+        Task<IEnumerable<MgyBillsStatus>> DispatchBills(MgyBills mgyBills, string networkId, string token, string endpoint, string transactionType);
     }
 
 
@@ -41,7 +41,8 @@ namespace QboIntegrationCS.Application.Bill
             DateTime dtStart,
             int daysEnd,
             string endpoint,
-            int offset)
+            int offset,
+            string transactionType)
         {
             try
             {
@@ -51,12 +52,12 @@ namespace QboIntegrationCS.Application.Bill
                 _logger.LogInformation($"uri condition: {condtion}");
 
                 var httpClient =  _client.CreateClient("MgyExt");
-                var response = await httpClient.GetAsync(new Uri($"{endpoint}/bills?limit={limit}&offset={offset}" +
+                var response = await httpClient.GetAsync(new Uri($"{endpoint}/{transactionType}?limit={limit}&offset={offset}" +
                     $"&token={token}&condition={condtion}")).ConfigureAwait(false);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    _logger.LogInformation($"Response Success qbo bills: {await response.Content.ReadAsStringAsync()}");
+                    _logger.LogInformation($"Response Success qbo {transactionType}: {await response.Content.ReadAsStringAsync()}");
                     var resp = JsonConvert.DeserializeObject<QboBillsEntry>(await response.Content.ReadAsStringAsync().ConfigureAwait(false));
                     if (resp.Objects != null)
                     {
@@ -65,18 +66,18 @@ namespace QboIntegrationCS.Application.Bill
                 }
                 else
                 {
-                    _logger.LogError($"BadRequest Magaya qbo/bills: {response.StatusCode} | {response.ReasonPhrase} | error: {await response.Content?.ReadAsStringAsync()}");
+                    _logger.LogError($"BadRequest Magaya qbo/{transactionType}: {response.StatusCode} | {response.ReasonPhrase} | error: {await response.Content?.ReadAsStringAsync()}");
                 }
                 return default;
             }
             catch (System.Exception exc)
             {
-                _logger.LogError("Can't get qbo bills", exc.Message);
+                _logger.LogError($"Can't get qbo {transactionType}: {exc.Message}");
                 throw exc;
             }
         }
 
-        public async Task<IEnumerable<MgyBillsStatus>> DispatchBills(MgyBills mgyBills, string networkId, string token, string endpoint)
+        public async Task<IEnumerable<MgyBillsStatus>> DispatchBills(MgyBills mgyBills, string networkId, string token, string endpoint, string transactionType)
         {
             try
             {
@@ -88,14 +89,14 @@ namespace QboIntegrationCS.Application.Bill
                 var stringContent = new StringContent(JsonConvert.SerializeObject(mgyBills), Encoding.UTF8, "application/json");
                 var sss = JsonConvert.SerializeObject(mgyBills);
 
-                _logger.LogInformation($"Sent bills to magy ext qbo: {JsonConvert.SerializeObject(mgyBills)}"); 
+                _logger.LogInformation($"Sent {transactionType} to magy ext qbo: {JsonConvert.SerializeObject(mgyBills)}"); 
 
                 var httpClient = _client.CreateClient("MgyExt");
-                var response = await httpClient.PostAsync(new Uri($"{endpoint}/process-missing-entities/{networkId}?token={token}&entity=bills"), stringContent).ConfigureAwait(false);
+                var response = await httpClient.PostAsync(new Uri($"{endpoint}/process-missing-entities/{networkId}?token={token}&entity={transactionType}"), stringContent).ConfigureAwait(false);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    _logger.LogInformation($"Response Success / DispatchBills ext: {await response.Content.ReadAsStringAsync()}");
+                    _logger.LogInformation($"Response Success / Dispatch {transactionType} ext: {await response.Content.ReadAsStringAsync()}");
                     return JsonConvert.DeserializeObject<IEnumerable<MgyBillsStatus>>(await response.Content.ReadAsStringAsync().ConfigureAwait(false));
                 }
                 else
@@ -106,7 +107,7 @@ namespace QboIntegrationCS.Application.Bill
             }
             catch (Exception exc)
             {
-                _logger.LogError("Can't DispatchBills to Magaya ext", exc.Message);
+                _logger.LogError($"Can't Dispatch {transactionType} to Magaya ext: {exc.Message}");
                 throw;
             }
         }

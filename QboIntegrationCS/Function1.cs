@@ -37,9 +37,20 @@ namespace QboIntegrationCS
                 var dtStart = DateTime.Parse(req.Query["dtStart"]);
                 var dtEnd = _settings.Value.DaysEnd;
                 var networkId = req.Query["networkId"];
-                var respdate = await _service.SendBills(networkId, token, limit, dtStart, dtEnd);
+                var transactionType = req.Query["transactionType"].ToString();
+                if (string.IsNullOrEmpty(transactionType) || string.IsNullOrEmpty(transactionType))
+                {
+                    return new BadRequestObjectResult("NetworkId and TransactionType cannot be null or empty");
+                }
+                if (transactionType == "bills" || transactionType == "invoices")
+                {
+                    var respdate = await _service.SendBills(networkId, token, limit, dtStart, dtEnd, transactionType);
 
-                return new OkObjectResult($"Last bill date: {respdate}");
+                    return new OkObjectResult($"Last bill date: {respdate}");
+                } else
+                {
+                    return new BadRequestObjectResult("TransactionType value must be 'bills' or 'invoices'");
+                }
             }
             catch (Exception ex)
             {

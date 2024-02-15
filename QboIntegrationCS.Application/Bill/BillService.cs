@@ -34,7 +34,7 @@ namespace QboIntegrationCS.Application.Bill
             _logger = logger;
         }
 
-        public async Task<DateTime?> SendBills(string networkId, string token, int limit, DateTime dtStart, int dtEnd)
+        public async Task<DateTime?> SendBills(string networkId, string token, int limit, DateTime dtStart, int dtEnd, string transactionType)
         {
             try
             {
@@ -50,11 +50,11 @@ namespace QboIntegrationCS.Application.Bill
 
                 var offset = 1;
                 // get qbo list
-                var qboBills = await _billDispatcher.GetQboBills(networkId, token, limit, dtStart, dtEnd, endpoint, offset);
+                var qboBills = await _billDispatcher.GetQboBills(networkId, token, limit, dtStart, dtEnd, endpoint, offset, transactionType);
                 
                 if (qboBills != null)
                 {
-                    var enddate = await ProccessBillsToMgy(qboBills, networkId, token, endpoint, dtStart);
+                    var enddate = await ProccessBillsToMgy(qboBills, networkId, token, endpoint, dtStart, transactionType);
                     if (enddate == null || qboBills.PageInfo.TotalCount < 100)
                     {
                         // proceso normal
@@ -64,10 +64,10 @@ namespace QboIntegrationCS.Application.Bill
                     while (runProccess)
                     {
                         offset = qboBills.PageInfo.TotalCount + offset;
-                        qboBills = await _billDispatcher.GetQboBills(networkId, token, limit, dtStart, dtEnd, endpoint, offset);
+                        qboBills = await _billDispatcher.GetQboBills(networkId, token, limit, dtStart, dtEnd, endpoint, offset, transactionType);
                         if (qboBills != null)
                         {
-                            DateTime? endDateWhile = await ProccessBillsToMgy(qboBills, networkId, token, endpoint, dtStart);
+                            DateTime? endDateWhile = await ProccessBillsToMgy(qboBills, networkId, token, endpoint, dtStart, transactionType);
                             if (endDateWhile == null)
                             {
                                 runProccess = false;
@@ -92,7 +92,7 @@ namespace QboIntegrationCS.Application.Bill
             }
         }
 
-        private async Task<DateTime?> ProccessBillsToMgy(QboBills qboBills, string networkId, string token, string endpoint, DateTime dtStart)
+        private async Task<DateTime?> ProccessBillsToMgy(QboBills qboBills, string networkId, string token, string endpoint, DateTime dtStart, string transactionType)
         {
             // save in cosmoDb
             var billsSaved = await _billsCosmoRepo.AddNewBillListAsync(MappingQboBill(qboBills,
@@ -103,7 +103,7 @@ namespace QboIntegrationCS.Application.Bill
             var billsResp = await _billDispatcher.DispatchBills(new MgyBills
             {
                 Entities = qboBills.Bills.Where(b => !string.IsNullOrEmpty(b.DocNumber))
-            }, networkId, token, endpoint);
+            }, networkId, token, endpoint, transactionType);
 
             // update bills status in cosmoDb
             if (billsResp != null)
