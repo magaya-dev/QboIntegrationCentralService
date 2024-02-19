@@ -34,7 +34,7 @@ namespace QboIntegrationCS.Application.Bill
             _logger = logger;
         }
 
-        public async Task<DateTime?> SendBills(string networkId, string token, int limit, DateTime dtStart, int dtEnd, string transactionType)
+        public async Task<DateTime?> SendBills(string networkId, string token, int limit, DateTime dtStart, DateTime? dtEnd, string transactionType)
         {
             try
             {

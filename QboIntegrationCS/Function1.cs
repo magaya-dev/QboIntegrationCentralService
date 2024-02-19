@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 using QboIntegrationCS.Application.Bill;
 using Microsoft.Extensions.Options;
 using QboIntegrationCS.Domain.AppSetting;
+using System.Drawing.Drawing2D;
 
 namespace QboIntegrationCS
 {
@@ -35,7 +36,8 @@ namespace QboIntegrationCS
                 var token = _settings.Value.Token;
                 var limit = _settings.Value.Limit;
                 var dtStart = DateTime.Parse(req.Query["dtStart"]);
-                var dtEnd = _settings.Value.DaysEnd;
+                var dateEnd = req.Query["dtEnd"];
+                DateTime? dtEnd = !string.IsNullOrEmpty(dateEnd) ? DateTime.Parse(dateEnd) : null;//_settings.Value.DaysEnd;
                 var networkId = req.Query["networkId"];
                 var transactionType = req.Query["transactionType"].ToString();
                 if (string.IsNullOrEmpty(transactionType) || string.IsNullOrEmpty(transactionType))
@@ -46,7 +48,10 @@ namespace QboIntegrationCS
                 {
                     var respdate = await _service.SendBills(networkId, token, limit, dtStart, dtEnd, transactionType);
 
-                    return new OkObjectResult($"Last bill date: {respdate}");
+                    if (respdate != null)
+                        return new OkObjectResult($"Last {transactionType} date: {respdate}");
+                    else
+                        return new OkObjectResult($"No items for this conditions");
                 } else
                 {
                     return new BadRequestObjectResult("TransactionType value must be 'bills' or 'invoices'");

@@ -8,6 +8,6 @@ namespace QboIntegrationCS.Application.Bill
 {
     public interface IBillService
     {
-        Task<DateTime?> SendBills(string networkId, string token, int limit, DateTime dtStart, int dtEnd, string transactionType);
+        Task<DateTime?> SendBills(string networkId, string token, int limit, DateTime dtStart, DateTime? dtEnd, string transactionType);
     }
 }

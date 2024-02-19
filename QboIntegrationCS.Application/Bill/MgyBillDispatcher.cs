@@ -17,7 +17,7 @@ namespace QboIntegrationCS.Application.Bill
 {
     public interface IMgyBillDispatcher
     {
-        Task<QboBills> GetQboBills(string networkId, string token, int limit, DateTime dtStart, int daysEnd, string endpoint, int offset, string transactionType);
+        Task<QboBills> GetQboBills(string networkId, string token, int limit, DateTime dtStart, DateTime? daysEnd, string endpoint, int offset, string transactionType);
         Task<IEnumerable<MgyBillsStatus>> DispatchBills(MgyBills mgyBills, string networkId, string token, string endpoint, string transactionType);
     }
 
@@ -39,15 +39,15 @@ namespace QboIntegrationCS.Application.Bill
             string token,
             int limit,
             DateTime dtStart,
-            int daysEnd,
+            DateTime? daysEnd,
             string endpoint,
             int offset,
             string transactionType)
         {
             try
             {
-                var condtion = daysEnd != 0 ?
-                    $"TxnDate > '{dtStart.ToString("yyyy-MM-dd")}' AND TxnDate < '{dtStart.AddDays(daysEnd).ToString("yyyy-MM-dd")}' order by TxnDate"
+                var condtion = daysEnd != null ?
+                    $"TxnDate > '{dtStart.ToString("yyyy-MM-dd")}' AND TxnDate < '{daysEnd.Value.ToString("yyyy-MM-dd")}' order by TxnDate"
                     : $"TxnDate > '{dtStart.ToString("yyyy-MM-dd")}' order by TxnDate";
                 _logger.LogInformation($"uri condition: {condtion}");
 
