@@ -48,14 +48,14 @@ namespace QboIntegrationCS.Triggers.Timer
 
                     log.LogInformation($"dtStart: {dtStart}");
 
-                    // get bills and send them to Mgy est
-                    var respDate = await _billService.SendBills(networkId, token, limit, dtStart, 0, "bills");
+                    //// get bills and send them to Mgy est
+                    //var respDate = await _billService.SendBills(networkId, token, limit, dtStart, 0, "bills");
 
-                    // Update last date
-                    if (respDate != null)
-                    {
-                        await _clientService.UpdateClientQbo(networkId, respDate.Value);
-                    }
+                    //// Update last date
+                    //if (respDate != null)
+                    //{
+                    //    await _clientService.UpdateClientQbo(networkId, respDate.Value);
+                    //}
                 }
             }
             catch (Exception ex)
